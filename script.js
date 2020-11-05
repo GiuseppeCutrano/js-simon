@@ -25,10 +25,33 @@ function getRandom (min, max) {
 }
 
 // timer
-       var timeleft = 30;
-       var downloadTimer = setInterval(function(){
-       timeleft--;
-       document.getElementById("timer").innerHTML = timeleft;
-       if(timeleft <= 0)
-           clearInterval(downloadTimer);
-       },1000);
+         var time = 30
+         var countDown = setInterval(function() {
+
+          time--;
+
+
+          $('#timer').text(time);
+
+
+          if(time <= 0) {
+
+              clearInterval(countDown);
+          }
+        }, 1000);
+
+
+          var numbersFind = [];
+          setTimeout (function() {
+          var numbersOk =[];
+          for(var i = 0; i < 5; i++) {
+           var numberUser = parseInt(prompt('inserisci il numero che ricordi ' + (i + 1)));
+
+           if(randomNumbers.includes(numberUser)) {
+             numbersFind.push(numberUser)
+           }
+          }
+          console.log(numbersFind);
+          
+          alert(numbersFind + ' '+ 'hai indovinato' + ' '+ numbersFind.length + ' '+ 'numeri');
+          }, 30000)
